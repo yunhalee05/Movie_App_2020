@@ -5,6 +5,7 @@ import MainImage from "../LandingPage/Section/MainImage"
 import MovieInfo from "./Sections/MovieInfo";
 import GridCards from "../commons/GridCards";
 import {Row} from 'antd';
+import Favorite from "./Sections/Favorite";
 
 function MovieDetail(props) {
 
@@ -42,7 +43,7 @@ function MovieDetail(props) {
         <div>
             {/* Header */}
         <MainImage     //랜딩페이지에서의 메인이미지 특징과 동일하게 준다. (State이름만 Movie로 바꿔준다.)
-          images={`${IMAGE_BASE_URL}w1280${Movie.backdrop_path}`}
+          image={`${IMAGE_BASE_URL}w1280${Movie.backdrop_path}`}
           title={Movie.original_title}
           text={Movie.overview}
         />
@@ -52,6 +53,15 @@ function MovieDetail(props) {
 
             {/* Body */}
             <div style={{width:'85%', margin:'1rem auto'}}>
+
+
+
+                <div style={{display: 'flex', justifyContent: 'flex-end'}}>
+                    <Favorite   movieInfo= {Movie} movieId = {movieId} userFrom={localStorage.getItem('userId')}/>
+                </div>
+
+
+
 
                 {/* Movie Info */}
 

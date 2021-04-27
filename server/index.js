@@ -35,6 +35,8 @@ app.use(cookieParser());
 
 app.use('/api/users', require('./routes/users'));
 
+//router가 api/favorite으로 시작한다면 route/favorite파일로 가서 뒷부분만 찾아서 붙인다. 
+app.use('/api/favorite',require('./routes/favorite'))
 
 //use this to show the image you have in node js server to client (react js)
 //https://stackoverflow.com/questions/48914987/send-image-path-from-node-js-express-server-to-react-client
