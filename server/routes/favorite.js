@@ -64,4 +64,34 @@ router.post('/addToFavorite',  (req, res) =>{
 })
 
 
+//좋아하는 영화정보 가져오기 
+router.post('/getFavoritedMovie',  (req, res) =>{
+    
+
+    Favorite.find({'userFrom':req.body.userFrom})
+        .exec((err, favorites)=>{
+            if(err)return res.status(400).send(err)
+            return res.status(200).json({success:true, favorites})//좋아하는 영화들의 형식이 배열 형태로 있을 것이다. 
+        })
+
+    
+})
+
+
+//favorite list에서 제거한다. 
+router.post('/removeFromFavorite',  (req, res) =>{
+    
+
+    Favorite.findOneAndDelete({movieId: req.body.movieId, userFrom: req.body.userFrom})
+    .exec((err, result)=>{
+        if(err)return res.status(400).send(err)
+        return res.status(200).json({success:true})
+
+    })
+    
+})
+
+
+
+
 module.exports = router;
