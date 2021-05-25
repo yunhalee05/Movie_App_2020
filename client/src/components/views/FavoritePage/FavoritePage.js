@@ -3,7 +3,6 @@ import React,{useEffect, useState} from 'react'
 import './favorite.css';
 import {Popover} from 'antd';
 import {IMAGE_BASE_URL} from '../../Config'
-import { response } from 'express';
 
 function FavoritePage() {
     const [Favorites, setFavorites] = useState([])
